@@ -22,7 +22,12 @@ export class AuthService {
     if (!checkPassword) {
       throw new UnauthorizedException('Email or password incorrect');
     }
-    const payload = { sub: user.id, username: user.email };
+    const payload = {
+      id: user.id,
+      user_name: user.name,
+      email: user.email,
+      image_profile: user.image_profile,
+    };
     return {
       access_token: await this.jwtService.signAsync(payload),
     };
@@ -36,13 +41,13 @@ export class AuthService {
 
     const payload = {
       id: authCreated.id,
-      name: authCreated.name,
+      user_name: authCreated.name,
       email: authCreated.email,
+      image_profile: authCreated.image_profile,
     };
     const token = this.jwtService.sign(payload);
     const data = {
-      user: authCreated,
-      token: token,
+      access_token: token,
     };
     return data;
   }

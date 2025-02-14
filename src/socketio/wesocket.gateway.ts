@@ -8,7 +8,8 @@ import {
   WebSocketServer,
 } from '@nestjs/websockets';
 import { Server, Socket } from 'socket.io';
-interface Room {
+/* import { chatgpt } from 'src/features/ChatGpt/chatgpt';
+ */ interface Room {
   userName: string;
   room: string;
   message: string;
@@ -41,6 +42,7 @@ export class WebsocketGateway
     @MessageBody() data: string,
   ) {
     //this.server.emit('message', data);
+    //chatgpt('di hola y presentate');
     client.broadcast.emit('message', data);
   }
 
@@ -59,7 +61,8 @@ export class WebsocketGateway
   @SubscribeMessage('event_message')
   handleMessageRoom(client: Socket, data: Room) {
     //this.server.emit('message', data);
-    client.broadcast.to(`room_${data.room}`).emit('new_message', data);
+    //client.broadcast.to(`room_${data.room}`).emit('new_message', data);
+    this.server.to(`room_${data.room}`).emit('new_message', data);
     //client.broadcast.to(`room_${room}`).emit('new_message', message);
   }
 }
