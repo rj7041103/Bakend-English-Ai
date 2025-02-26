@@ -6,12 +6,14 @@ import { UserModule } from './features/Users/user.module';
 import { AuthModule } from './features/Auth/auth.module';
 import { chatGPTModule } from './chatgpt/chatGPT.module';
 import { ConfigModule } from '@nestjs/config';
+import { TestModule } from './features/Test/test.module';
 @Module({
   imports: [
     chatGPTModule,
     WebSocketModule,
     UserModule,
     AuthModule,
+    TestModule,
     ConfigModule.forRoot(),
   ],
   controllers: [AppController],

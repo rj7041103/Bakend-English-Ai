@@ -17,3 +17,11 @@ model User {
   password String 
   image_profile String?
 }
+
+model Test{
+  id  String @id @default(uuid())
+  question String @unique
+  options Json
+  answer  String
+  english_level String
+}
