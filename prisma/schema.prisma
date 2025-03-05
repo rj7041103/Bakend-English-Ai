@@ -23,5 +23,6 @@ model Test{
   question String @unique
   options Json
   answer  String
+  userAnswer String?
   english_level String
 }
