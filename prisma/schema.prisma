@@ -16,6 +16,8 @@ model User {
   name  String?
   password String 
   image_profile String?
+  progress Float?
+  english_level String?
 }
 
 model Test{
@@ -26,3 +28,4 @@ model Test{
   userAnswer String?
   english_level String
 }
+
