@@ -29,3 +29,9 @@ model Test{
   english_level String
 }
 
+model RearrangeSentences {
+  id      String @id @default(uuid())
+  level   Int
+  words   Json  // Almacena como JSON: ["word1", "word2"]
+  sentence String @unique
+}

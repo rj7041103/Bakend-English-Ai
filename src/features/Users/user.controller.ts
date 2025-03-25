@@ -4,7 +4,7 @@ import {
   Delete,
   Get,
   Param,
-  Post,
+  //Post,
   Put,
 } from '@nestjs/common';
 import { User } from '@prisma/client';
@@ -20,10 +20,10 @@ export class UsersController {
   async getUser(@Param('id') id: string): Promise<User> {
     return this.userService.getUser(id);
   }
-  @Post()
+  /* @Post()
   async createUser(@Body() data: User): Promise<User> {
     return this.userService.createUser(data);
-  }
+  } */
 
   @Put(':id')
   async updateUser(@Param('id') id: string, @Body() data: User): Promise<User> {

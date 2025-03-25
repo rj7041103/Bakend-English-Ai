@@ -7,6 +7,7 @@ import { AuthModule } from './features/Auth/auth.module';
 import { chatGPTModule } from './chatgpt/chatGPT.module';
 import { ConfigModule } from '@nestjs/config';
 import { TestModule } from './features/Test/test.module';
+import { RearrangeModule } from './features/RearrangeSentences/RearrangeSentences.module';
 @Module({
   imports: [
     chatGPTModule,
@@ -14,6 +15,7 @@ import { TestModule } from './features/Test/test.module';
     UserModule,
     AuthModule,
     TestModule,
+    RearrangeModule,
     ConfigModule.forRoot(),
   ],
   controllers: [AppController],
